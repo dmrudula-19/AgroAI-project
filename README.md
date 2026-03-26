@@ -1,4 +1,4 @@
-# Farmer Decision Support System 🌾🐛
+# Farmer Decision Support System
 
 ## Overview
 This project was built during a 24h hackathon.  
@@ -8,7 +8,7 @@ It provides:
 
 ---
 
-## 🚀 Getting Started
+Getting Started
 
 ### 1. Clone the Repository
 ```bash
