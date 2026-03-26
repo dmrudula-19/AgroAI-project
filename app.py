@@ -64,3 +64,47 @@ if st.button("Recommend Crop"):
         st.success("Recommended Crop: Sugarcane 🍬")
     else:
         st.info("Try Maize 🌽")
+import requests
+
+st.header("🌦️ Weather Forecast")
+
+api_key = "YOUR_API_KEY"  # get one free at openweathermap.org
+city = st.text_input("Enter city name", "Bengaluru")
+
+if st.button("Get Weather"):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    response = requests.get(url)
+    data = response.json()
+
+    if response.status_code == 200:
+        temp = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        desc = data["weather"][0]["description"]
+
+        st.metric("Temperature (°C)", temp)
+        st.metric("Humidity (%)", humidity)
+        st.write(f"Condition: {desc.capitalize()}")
+    else:
+        st.error("Weather data not available")
+import requests
+
+st.header("🌦️ Weather Forecast")
+
+api_key = "YOUR_API_KEY"  # get one free at openweathermap.org
+city = st.text_input("Enter city name", "Bengaluru")
+
+if st.button("Get Weather"):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    response = requests.get(url)
+    data = response.json()
+
+    if response.status_code == 200:
+        temp = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        desc = data["weather"][0]["description"]
+
+        st.metric("Temperature (°C)", temp)
+        st.metric("Humidity (%)", humidity)
+        st.write(f"Condition: {desc.capitalize()}")
+    else:
+        st.error("Weather data not available")
