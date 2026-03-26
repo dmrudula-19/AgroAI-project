@@ -1,8 +1,17 @@
 import streamlit as st
 import pandas as pd
 
-# Page setup
-st.set_page_config(page_title="Farmer Decision Support System", layout="wide")
+st.title("Login Page")
+username = st.text_input("Username")
+password = st.text_input("Password", type="password")
+
+if st.button("Login"):
+    if username == "admin" and password == "1234":
+        st.success("Login successful!")
+        # Show the dashboard here
+    else:
+        st.error("Invalid credentials")
+
 
 # Title
 st.title("🌾 Farmer Decision Support System")
@@ -37,3 +46,21 @@ st.write(f"✅ Recommendation: {recommendation}")
 # --- Footer ---
 st.markdown("---")
 st.caption("Demo prototype. Data is simulated for hackathon presentation")
+
+# --- Crop Recommendation ---
+st.header("🌱 Crop Recommendation")
+
+soil_type = st.selectbox("Select Soil Type", ["Loamy", "Clay", "Sandy", "Alluvial"])
+season = st.selectbox("Select Season", ["Kharif", "Rabi", "Summer"])
+
+if st.button("Recommend Crop"):
+    if soil_type == "Loamy" and season == "Kharif":
+        st.success("Recommended Crop: Rice 🌾")
+    elif soil_type == "Clay" and season == "Rabi":
+        st.success("Recommended Crop: Wheat 🌾")
+    elif soil_type == "Sandy" and season == "Summer":
+        st.success("Recommended Crop: Groundnut 🌰")
+    elif soil_type == "Alluvial" and season == "Kharif":
+        st.success("Recommended Crop: Sugarcane 🍬")
+    else:
+        st.info("Try Maize 🌽")
